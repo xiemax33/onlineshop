@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Online Store</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li> -->
+      </ul>
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item" *ngIf="!isUser">
+          <a class="nav-link" href="#" [routerLink]="['login']">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="isUser">
+          <a class="nav-link" href="#" [routerLink]="['cart']">Cart</a>
+        </li>
+        <li class="nav-item dropdown" *ngIf="isUser">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{userName}}
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><button class="dropdown-item" type="button">Profile</button></li>
+            <li><button class="dropdown-item" type="button">Change Password</button></li>
+            <li><button class="dropdown-item" type="button" (click)="logout()">Logout</button></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+    <ul class="category_btn">
+      <li (click)="categorySelected('')">view all</li>
+      <li *ngFor="let item of categories" (click)="categorySelected(item)">{{item}}</li>
+    </ul>
+    <div class="row">
+      <div *ngFor="let product of products" class="col-md-3">
+        <div class="product_list">
+          <img [src]="product.image" class="card-img-top" alt="{{ product.title }}" />
+          <div class="info">
+            <h5 class="info-title">{{ product.title }}</h5>
+            <div class="row info-harga">
+              <div class="col-6">
+                <p class="info-text">{{ product.price | currency }}</p>
+              </div>
+              <div class="col-6">
+                <p class="info-text float-end">{{ product.category }}</p>
+              </div>
+            </div>
+          </div>
+          <button (click)="addToCart(product)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+</div>
