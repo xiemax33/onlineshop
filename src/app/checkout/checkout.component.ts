@@ -6,7 +6,7 @@ import { ApiService } from '../services/api.service';
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [NgIf, NgFor, CommonModule],
+  imports: [NgFor, CommonModule],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.scss'
 })

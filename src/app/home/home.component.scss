@@ -26,8 +26,9 @@
     overflow: hidden;
     margin-bottom: 10px;
     cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.1);
     img{
-        height: 250px;
+        height: 150px;
         object-fit: contain;
     }
     &:hover button{
@@ -48,16 +49,20 @@
         position: relative;
         font-size: 12px;
         padding: 10px;
-        height: 115px;
         &-title{
-            font-size: 14px;
-            font-weight: bold;
+            font-size: 12px;
+            margin: 0;
+        }
+        &-category{
+            font-size: 10px;
+            font-style: italic;
+            margin: 0;
         }
         &-harga{
-            position: absolute;
-            bottom: 0px;
-            left: 10px;
-            right: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
         }
     }
 }
@@ -89,3 +94,10 @@
         float: right;
     }
 }
+.text-truncate {
+    display: inline-block;
+    max-width: 20ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }

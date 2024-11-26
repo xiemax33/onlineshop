@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background: white;
+}
+.navbar{
+    background: white!important;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    font-size: 12px;
+    letter-spacing: 1.3px;
+}

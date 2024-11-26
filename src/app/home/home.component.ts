@@ -20,6 +20,8 @@ export class HomeComponent implements OnInit {
   categories: any[] = [];
   userCart: any[] = [];
   productUrl: any = 'products';
+  responseBox: boolean = false;
+  responseMessage: any = ''
 
   constructor(
     private apiService: ApiService,
@@ -83,6 +85,12 @@ export class HomeComponent implements OnInit {
   addToCart(product: any) {
     if(this.isUser){
       this.cartService.addToCart(product);
+      this.responseBox = true;
+      this.responseMessage = 'Product added to cart!';
+      setInterval(() => {
+        this.responseBox = false;
+        this.responseMessage = '';
+      }, 1000);
     }
     else{
       this.router.navigateByUrl('/login');
